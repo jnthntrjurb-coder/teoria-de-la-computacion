@@ -29,9 +29,10 @@ def afd(cadena):
     return estado == "q2"
 
 
-# Pruebas
-cadenas = ["01", "101", "0001", "10", "111", ""]
+cadena = input("Cadena 0 y 1: ")
 
-for c in cadenas:
-    resultado = "Acepta" if afd(c) else "Rechaza"
-    print(f"Cadena: '{c}' -> {resultado}")
+if afd(cadena):
+    print("ACEPTADA")
+else:
+    print("RECHAZADA")
+
