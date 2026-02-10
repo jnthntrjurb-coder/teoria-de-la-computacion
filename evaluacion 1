@@ -1,0 +1,37 @@
+def afd(cadena):
+    estado = "q0"
+
+    for simbolo in cadena:
+        if estado == "q0":
+            if simbolo == "0":
+                estado = "q1"
+            elif simbolo == "1":
+                estado = "q0"
+            else:
+                return False
+
+        elif estado == "q1":
+            if simbolo == "0":
+                estado = "q1"
+            elif simbolo == "1":
+                estado = "q2"
+            else:
+                return False
+
+        elif estado == "q2":
+            if simbolo == "0":
+                estado = "q1"
+            elif simbolo == "1":
+                estado = "q0"
+            else:
+                return False
+
+    return estado == "q2"
+
+
+# Pruebas
+cadenas = ["01", "101", "0001", "10", "111", ""]
+
+for c in cadenas:
+    resultado = "Acepta" if afd(c) else "Rechaza"
+    print(f"Cadena: '{c}' -> {resultado}")
